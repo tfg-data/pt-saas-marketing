@@ -1,0 +1,22 @@
+{
+  "name": "marketing",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "screenshots": "tsx scripts/capture-screenshots.ts"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.0",
+    "@tailwindcss/vite": "^4.2.0",
+    "astro": "^5.17.1",
+    "tailwindcss": "^4.2.0"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.58.2",
+    "tsx": "^4.21.0"
+  }
+}

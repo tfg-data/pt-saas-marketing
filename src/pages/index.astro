@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Features from '../components/sections/Features.astro';
+import SystemLevels from '../components/sections/SystemLevels.astro';
+import SocialProof from '../components/sections/SocialProof.astro';
+import PricingOverview from '../components/sections/PricingOverview.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
+---
+
+<BaseLayout
+  title="PT-SaaS | 中小製造業向けクラウド生産管理システム"
+  description="PT-SaaSは中小製造業向けのクラウド型生産管理システムです。受注・出荷・売上・購買・外注・生産計画まで、必要な機能を選んで導入できます。サーバー不要・月額1,000円/台〜。"
+>
+  <Hero />
+  <Features />
+  <SystemLevels />
+  <SocialProof />
+  <PricingOverview />
+  <CtaBanner />
+</BaseLayout>

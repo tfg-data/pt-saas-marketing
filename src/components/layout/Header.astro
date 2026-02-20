@@ -1,0 +1,104 @@
+---
+const navItems = [
+  { label: '機能', href: '/features/' },
+  { label: '料金', href: '/pricing/' },
+  { label: '会社案内', href: '/company/' },
+  { label: 'FAQ', href: '/faq/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- ロゴ -->
+      <a href="/" class="flex-shrink-0">
+        <img
+          src="/images/tfglogo.png"
+          alt="TFG DATA"
+          class="h-10 w-auto"
+        />
+      </a>
+
+      <!-- デスクトップナビ -->
+      <nav class="hidden md:flex items-center gap-1">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={[
+              'px-4 py-2 rounded-md text-sm font-medium transition-colors',
+              currentPath.startsWith(item.href)
+                ? 'text-primary-600 bg-primary-50'
+                : 'text-slate-600 hover:text-primary-600 hover:bg-slate-50',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a
+          href="/contact/"
+          class="inline-flex items-center px-4 py-2 rounded-lg bg-primary-600 text-white text-sm font-semibold hover:bg-primary-700 transition-colors"
+        >
+          お問い合わせ
+          <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- モバイルメニューボタン -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100"
+        aria-label="メニューを開く"
+        aria-expanded="false"
+      >
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- モバイルメニュー -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200">
+    <nav class="px-4 py-3 space-y-1">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-slate-50"
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="/contact/"
+        class="block mt-3 px-4 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-semibold text-center hover:bg-primary-700 transition-colors"
+      >
+        お問い合わせ
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false;
+    btn.setAttribute('aria-expanded', String(isOpen));
+    menuIcon?.classList.toggle('hidden', isOpen);
+    closeIcon?.classList.toggle('hidden', !isOpen);
+  });
+</script>

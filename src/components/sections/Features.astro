@@ -1,0 +1,55 @@
+---
+const features = [
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>`,
+    color: 'bg-primary-100 text-primary-600',
+    title: '必要な機能を選べる',
+    description: '受注・出荷から始めて、購買・外注、生産計画へと段階的に拡張できます。会社の規模や管理レベルに合わせて3ステップで導入。過剰な機能を押し付けません。',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
+    color: 'bg-accent-100 text-accent-600',
+    title: 'サーバー不要・すぐ使える',
+    description: '外部データセンターで運用するため、社内にサーバーを設置する必要がありません。インターネット接続できるPCがあれば今日から使えます。バックアップ・運用管理も含む月額料金です。',
+  },
+  {
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
+    color: 'bg-green-100 text-green-600',
+    title: 'EDI連携で受注を自動化',
+    description: 'Web-EDIの受信データを自動取込し、受注登録の工数を大幅削減。手作業によるミスを防ぎ、得意先とのデータ連携をスムーズに実現します。',
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- セクションヘッダー -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        PT-SaaSの3つの特徴
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        小規模製造業が抱える「コスト・手間・複雑さ」の課題を解決する、<br class="hidden sm:block" />
+        シンプルなクラウド生産管理システムです。
+      </p>
+    </div>
+
+    <!-- 特徴カード -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {features.map((f, i) => (
+        <div class="relative p-7 rounded-2xl border border-slate-200 hover:border-primary-200 hover:shadow-md transition-all group">
+          <!-- 番号 -->
+          <div class="absolute top-5 right-6 text-6xl font-black text-slate-50 select-none group-hover:text-primary-50 transition-colors">
+            {String(i + 1).padStart(2, '0')}
+          </div>
+
+          <div class:list={['inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5', f.color]}
+               set:html={f.icon}>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-3">{f.title}</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">{f.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

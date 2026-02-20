@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
+
+const faqs = [
+  {
+    category: 'システムについて',
+    items: [
+      {
+        q: 'PT-SaaSとはどんなシステムですか？',
+        a: '中小製造業向けのクラウド型生産管理システムです。受注・出荷・売上（Level 1）、購買・外注・支払（Level 2）、生産計画・工程進捗・在庫管理（Level 3）の3段階で必要な機能を選んで利用できます。',
+      },
+      {
+        q: 'クラウド型とはどういう意味ですか？',
+        a: 'システムがインターネット上のデータセンターで稼働しており、社内にサーバーを設置する必要がありません。インターネットに接続できるPCがあれば、すぐに使い始めることができます。',
+      },
+      {
+        q: 'スマートフォンやタブレットでも使えますか？',
+        a: 'Webブラウザ経由でのアクセスになりますが、主な業務はPC環境での使用を推奨しています。スマートフォン・タブレット対応については個別にご相談ください。',
+      },
+    ],
+  },
+  {
+    category: '導入・運用',
+    items: [
+      {
+        q: '導入にはどのくらいの期間がかかりますか？',
+        a: '企業規模や必要なカスタマイズによって異なりますが、標準的な場合は1〜3ヶ月程度を目安としています。詳細はお問い合わせ時にお伝えします。',
+      },
+      {
+        q: '既存のシステムやデータを移行できますか？',
+        a: '既存システムとのデータ連携やデータ移行については、個別にご相談ください。EDIなどの外部システムとの連携実績があります。',
+      },
+      {
+        q: 'サポートはどのように受けられますか？',
+        a: '月額利用料にサポート料が含まれており、tfg-support@tfgdata.jp へのメールで24時間対応しています。',
+      },
+      {
+        q: 'データのバックアップはどうなりますか？',
+        a: '月額利用料に含まれる運用管理の一部としてデータバックアップを実施しています。お客様がバックアップ作業を行う必要はありません。',
+      },
+    ],
+  },
+  {
+    category: '料金',
+    items: [
+      {
+        q: '初期費用には何が含まれますか？',
+        a: 'レベル1〜3の全機能・サーバー設定・PC設定・マニュアル・操作説明（研修）が含まれます。',
+      },
+      {
+        q: '月額料金の支払い方法は？',
+        a: '銀行振込にてお支払いいただいています。振込手数料はお客様負担となります。',
+      },
+      {
+        q: 'Level 1だけ導入して後からLevel 2・3を追加できますか？',
+        a: 'はい、可能です。ビジネスの拡大に合わせて段階的に機能を追加できます。追加の費用については別途お見積もりとなります。',
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="よくある質問 | PT-SaaS"
+  description="PT-SaaSに関するよくある質問。システムの機能、導入方法、料金、サポートについてご案内します。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-gradient-to-b from-slate-50 to-white py-16 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">よくある質問</h1>
+      <p class="text-lg text-slate-600">解決しない場合は<a href="/contact/" class="text-primary-600 hover:underline">お問い合わせ</a>ください。</p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {faqs.map((section) => (
+        <div>
+          <h2 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-slate-200">{section.category}</h2>
+          <div class="space-y-2">
+            {section.items.map((item) => (
+              <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+                <summary class="flex items-start justify-between p-5 cursor-pointer hover:bg-slate-50 text-sm font-semibold text-slate-900 list-none gap-3">
+                  <span class="flex items-start gap-2">
+                    <span class="text-primary-500 font-bold flex-shrink-0">Q.</span>
+                    {item.q}
+                  </span>
+                  <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                  <span class="text-accent-600 font-bold mr-2">A.</span>{item.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>

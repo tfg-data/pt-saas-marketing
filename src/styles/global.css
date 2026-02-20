@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  /* ロゴ配色から導出したカラーパレット */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #1e4db7;
+  --color-primary-700: #1a3e96;
+  --color-primary-800: #1a3a8c;
+  --color-primary-900: #0f2561;
+
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  --color-gray-tfg: #6b7280;
+
+  /* フォント */
+  --font-sans: 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+  }
+}

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
+
+const profile = [
+  { label: '事業者名', value: '株式会社 TFGデータ　システム開発事業部' },
+  { label: '代表者', value: '松木 公冶' },
+  { label: '所在地', value: '京都府宇治市木幡平尾28番地683号' },
+  { label: '事業内容', value: 'クラウド/SaaS型生産管理システムの販売・サポート、プログラム開発・保守、システム企画・経営コンサルティング' },
+  { label: '連絡先', value: 'tfg-support@tfgdata.jp（24時間対応）' },
+];
+
+const history = [
+  { year: '2007年', event: '田中精工株式会社が自社・協力工場10社向けの生産管理システムを開発・稼働開始' },
+  { year: '2009年', event: 'IT経営力大賞2009 経済産業大臣賞・最優秀賞を受賞' },
+  { year: '2009年10月', event: '「新連携」支援事業の認定を取得し、外販開始' },
+  { year: '2016年', event: 'TFGデータとして PT-SaaS の提供・販売を本格化' },
+  { year: '現在', event: '15社以上の製造業への導入実績' },
+];
+---
+
+<BaseLayout
+  title="会社案内 | PT-SaaS | TFGデータ"
+  description="TFGデータの会社案内。京都府宇治市のシステム開発会社として、中小製造業向けクラウド生産管理システム「PT-SaaS」を提供しています。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-gradient-to-b from-slate-50 to-white py-16 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">会社のご案内</h1>
+      <p class="text-lg text-slate-600 max-w-xl mx-auto">
+        製造業の現場で生まれ、製造業のために磨かれたシステムを提供しています。
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- 受賞バナー -->
+      <div class="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-8 text-white mb-14 text-center">
+        <div class="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-white/20 mb-3">
+          <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        </div>
+        <h2 class="text-2xl font-bold mb-1">IT経営力大賞2009</h2>
+        <p class="text-xl font-semibold text-primary-100">経済産業大臣賞・最優秀賞 受賞</p>
+      </div>
+
+      <!-- 会社概要 -->
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">会社概要</h2>
+      <div class="overflow-hidden rounded-2xl border border-slate-200 mb-14">
+        <table class="w-full text-sm">
+          <tbody>
+            {profile.map((row, i) => (
+              <tr class:list={['border-b border-slate-100 last:border-0', i % 2 === 0 ? 'bg-white' : 'bg-slate-50']}>
+                <th class="text-left px-6 py-4 font-semibold text-slate-600 w-1/3 align-top">{row.label}</th>
+                <td class="px-6 py-4 text-slate-800">{row.value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 沿革 -->
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">沿革</h2>
+      <div class="relative pl-8">
+        <!-- タイムライン線 -->
+        <div class="absolute left-3 top-2 bottom-2 w-0.5 bg-primary-200"></div>
+
+        <div class="space-y-6">
+          {history.map((item) => (
+            <div class="relative">
+              <div class="absolute -left-5 top-1.5 w-4 h-4 rounded-full bg-primary-600 border-2 border-white shadow-sm"></div>
+              <div class="text-xs font-bold text-primary-600 mb-0.5">{item.year}</div>
+              <div class="text-sm text-slate-700">{item.event}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>

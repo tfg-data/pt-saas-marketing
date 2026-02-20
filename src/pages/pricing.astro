@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CtaBanner from '../components/sections/CtaBanner.astro';
+
+const faqs = [
+  {
+    q: '初期費用に含まれるものは何ですか？',
+    a: 'レベル1〜3の全機能・サーバー設定料・PC設定料・マニュアル・操作説明が含まれます。導入時の教育・研修も含まれるため、すぐに業務で使い始めることができます。',
+  },
+  {
+    q: 'Level 1だけ導入してLevel 2・3は後から追加できますか？',
+    a: 'はい、可能です。最初はLevel 1から始めて、業務拡大に合わせてLevel 2・3と段階的に追加できます。追加時の費用については別途お見積もりとなります。',
+  },
+  {
+    q: '月額料金にはどんなものが含まれますか？',
+    a: 'クラウド使用料・サポート料・運用管理料（サーバー管理・データバックアップ）が含まれます。自社でサーバーを用意・管理する必要はありません。',
+  },
+  {
+    q: 'カスタマイズはできますか？',
+    a: '画面項目の追加・変更、帳票項目の変更などのカスタマイズに対応しています。カスタマイズ内容によっては月額利用料が変わる場合があります。詳細はお問い合わせください。',
+  },
+  {
+    q: '解約はいつでもできますか？',
+    a: '解約条件については契約内容によります。詳細はお問い合わせ時にご確認ください。',
+  },
+];
+---
+
+<BaseLayout
+  title="料金 | PT-SaaS"
+  description="PT-SaaSの料金プラン。初期費用300万円〜、月額PC1台1,000円〜。サーバー不要のクラウド型生産管理システム。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-gradient-to-b from-slate-50 to-white py-16 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">料金プラン</h1>
+      <p class="text-lg text-slate-600 max-w-xl mx-auto">
+        シンプルな料金体系で、PC台数に応じた月額制です。<br />
+        初期費用にはすべての設定・研修が含まれます。
+      </p>
+    </div>
+  </section>
+
+  <!-- 料金カード -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 gap-8 mb-14">
+        <!-- 初期費用 -->
+        <div class="rounded-2xl border-2 border-slate-200 p-8">
+          <div class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-4">初期費用（一括）</div>
+          <div class="text-5xl font-black text-slate-900 mb-2">300万円<span class="text-base font-normal text-slate-500 ml-1">〜</span></div>
+          <p class="text-sm text-slate-500 mb-6">※ 金額は税別</p>
+          <ul class="space-y-3 text-sm text-slate-700">
+            {[
+              'レベル1〜3 全機能',
+              'サーバー設定料',
+              'PC設定料',
+              'マニュアル一式',
+              '操作説明・研修',
+            ].map((item) => (
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-primary-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 月額 -->
+        <div class="rounded-2xl bg-primary-600 p-8 text-white shadow-lg shadow-primary-200">
+          <div class="text-xs font-bold text-primary-200 uppercase tracking-wider mb-4">月額利用料</div>
+          <div class="flex items-baseline gap-1 mb-2">
+            <span class="text-5xl font-black">¥1,000</span>
+            <span class="text-primary-200">/ PC1台</span>
+          </div>
+          <p class="text-sm text-primary-200 mb-6">※ 金額は税別</p>
+          <ul class="space-y-3 text-sm">
+            {[
+              'クラウド使用料',
+              'サポート料（24時間対応）',
+              'サーバー管理',
+              'データバックアップ',
+            ].map((item) => (
+              <li class="flex items-center gap-2 text-white">
+                <svg class="w-4 h-4 text-primary-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 p-4 bg-primary-700/60 rounded-xl">
+            <div class="text-xs text-primary-200 mb-1">ご利用例</div>
+            <div class="text-white font-semibold">PC3台 = <span class="text-xl font-bold">33,000円</span>/月〜</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- カスタマイズ -->
+      <div class="bg-slate-50 rounded-2xl p-7 border border-slate-200 mb-14">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 rounded-lg bg-accent-100 text-accent-600 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 mb-1">カスタマイズ対応（別途お見積もり）</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              画面項目の追加・変更、帳票項目の変更など、業務フローに合わせたカスタマイズが可能です。
+              カスタマイズ内容によっては月額利用料が変わる場合があります。詳しくはお問い合わせください。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">よくある質問（料金について）</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+            <summary class="flex items-center justify-between p-5 cursor-pointer hover:bg-slate-50 text-sm font-semibold text-slate-900 list-none">
+              {faq.q}
+              <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+              {faq.a}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>

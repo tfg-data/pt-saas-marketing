@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const inquiryTypes = [
+  '資料請求',
+  '価格のお問い合わせ',
+  '価格見積もり',
+  'デモのご依頼',
+  'その他',
+];
+---
+
+<BaseLayout
+  title="お問い合わせ | PT-SaaS"
+  description="PT-SaaSへのお問い合わせ・資料請求はこちら。24時間以内にご返信します。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-gradient-to-b from-slate-50 to-white py-16 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">お問い合わせ</h1>
+      <p class="text-lg text-slate-600">
+        資料請求・価格見積もり・デモのご依頼など、お気軽にご相談ください。<br />
+        24時間以内にご返信いたします。
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-3 gap-5 mb-12">
+        {[
+          { icon: '📧', label: 'メール', value: 'tfg-support@tfgdata.jp', href: 'mailto:tfg-support@tfgdata.jp' },
+          { icon: '⏱', label: '返信', value: '24時間以内', href: null },
+          { icon: '📍', label: '所在地', value: '京都府宇治市', href: null },
+        ].map((info) => (
+          <div class="bg-slate-50 rounded-xl p-5 text-center">
+            <div class="text-2xl mb-2">{info.icon}</div>
+            <div class="text-xs text-slate-500 mb-1">{info.label}</div>
+            {info.href ? (
+              <a href={info.href} class="text-sm font-semibold text-primary-600 hover:underline break-all">{info.value}</a>
+            ) : (
+              <div class="text-sm font-semibold text-slate-800">{info.value}</div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- フォーム（Netlify Forms） -->
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/contact/thanks/"
+        class="space-y-6"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <div class="hidden">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              お名前 <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="山田 太郎"
+            />
+          </div>
+          <div>
+            <label for="company" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              会社名 <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="株式会社〇〇製作所"
+            />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-slate-700 mb-1.5">電話番号</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="075-000-0000"
+            />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              メールアドレス <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="example@company.jp"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="type" class="block text-sm font-semibold text-slate-700 mb-1.5">
+            お問い合わせ種別 <span class="text-red-500">*</span>
+          </label>
+          <select
+            id="type"
+            name="type"
+            required
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition bg-white"
+          >
+            <option value="" disabled selected>選択してください</option>
+            {inquiryTypes.map((t) => <option value={t}>{t}</option>)}
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-semibold text-slate-700 mb-1.5">
+            お問い合わせ内容 <span class="text-red-500">*</span>
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            rows="5"
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition resize-y"
+            placeholder="ご質問・ご要望をご記入ください。"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-4 rounded-xl bg-primary-600 text-white font-bold hover:bg-primary-700 transition-colors shadow-md shadow-primary-200 text-sm"
+        >
+          送信する
+        </button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>

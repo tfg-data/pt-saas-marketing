@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CtaBanner from '../../components/sections/CtaBanner.astro';
+
+const levels = [
+  {
+    id: 'level1',
+    label: 'Level 1',
+    title: '受注・出荷・売上',
+    subtitle: '部材支給の小規模製造業に最適なスタートパッケージ',
+    color: { badge: 'bg-primary-100 text-primary-700', dot: 'bg-primary-500', header: 'bg-primary-600' },
+    description: 'EDI連携による受注自動登録から、出荷ピッキング、納品書・請求書発行まで。受注から売上までのコアプロセスを一元管理します。',
+    modules: [
+      {
+        group: '受注管理',
+        items: [
+          'EDI伝送データ（受注登録処理）',
+          'EDI変換テーブル管理',
+          '受注伝票入力（量産品）',
+          '受注伝票入力（未登録品）',
+          '受注残高集計',
+          '受注明細帳',
+        ],
+      },
+      {
+        group: '出荷管理',
+        items: [
+          'ピッキングリスト',
+          '出荷予定',
+          '出荷入力（量産品/未登録品）',
+          '出荷明細帳',
+          '返品入力・明細帳',
+          '検品/製品タグ入力・印刷',
+        ],
+      },
+      {
+        group: '売上管理',
+        items: [
+          '得意先別売上',
+          '得意先別検収確認',
+          '納品書作成',
+          '請求書作成',
+        ],
+      },
+    ],
+    screenshot: '/images/screenshots/orders.png',
+  },
+  {
+    id: 'level2',
+    label: 'Level 2',
+    title: '購買・外注・支払',
+    subtitle: '自社で部材を調達・外注管理をする企業に',
+    color: { badge: 'bg-accent-100 text-accent-700', dot: 'bg-accent-500', header: 'bg-amber-500' },
+    description: 'Level 1の機能に加え、部材の発注・仕入、外注発注管理を追加。自社で部材を購入する企業の業務効率化を支援します。',
+    modules: [
+      {
+        group: '外注管理',
+        items: [
+          '外注受入管理・明細',
+          '部品注文書',
+          '部品発注管理',
+          '手書伝票入力・印刷',
+          '外注注残・部品注残検索',
+          '外注検収確定',
+        ],
+      },
+      {
+        group: '購買管理',
+        items: [
+          '購買伝票入力',
+          '購入明細',
+          '購買検収データ選択',
+          '購買検収確定・取消',
+        ],
+      },
+      {
+        group: '支払管理',
+        items: [
+          '支払管理',
+          '購買外注仮検収処理',
+          '支払内訳',
+        ],
+      },
+    ],
+    screenshot: '/images/screenshots/shipping.png',
+  },
+  {
+    id: 'level3',
+    label: 'Level 3',
+    title: '生産計画・工程進捗・在庫管理',
+    subtitle: '本格的な生産管理を実現するフル機能パッケージ',
+    color: { badge: 'bg-green-100 text-green-700', dot: 'bg-green-500', header: 'bg-green-600' },
+    description: 'Level 1・2に加え、生産計画作成・MRP所要量展開・工程進捗管理・在庫管理が利用可能。一般的な生産管理に必要な機能がほぼ揃います。',
+    modules: [
+      {
+        group: '生産計画・指図書',
+        items: [
+          '推移表データ生成',
+          '生産計画入力・推移表',
+          '指図書採番（所要量展開）',
+          '指図書発行情報・印刷',
+          '特記事項入力',
+          '注文書印刷',
+        ],
+      },
+      {
+        group: '工程管理',
+        items: [
+          '作業報告入力',
+          '工程進捗管理・一覧',
+          'ロットトレース・一覧',
+        ],
+      },
+      {
+        group: '在庫管理',
+        items: [
+          '入庫処理（製品）',
+          '素材・製品出庫処理',
+          '出庫取消',
+          '在庫メンテ',
+          '棚卸管理・調査表',
+          '製品未出庫リスト',
+        ],
+      },
+    ],
+    screenshot: '/images/screenshots/production.png',
+  },
+];
+---
+
+<BaseLayout
+  title="機能一覧 | PT-SaaS"
+  description="PT-SaaSの機能一覧。受注・出荷・売上（Level 1）、購買・外注・支払（Level 2）、生産計画・工程・在庫（Level 3）の3段階で必要な機能を選べます。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-gradient-to-b from-slate-50 to-white py-16 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">機能一覧</h1>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        3段階の機能レベルで、会社の規模・管理水準に合わせて導入できます。<br />
+        まず必要な機能から始めて、業務拡大に合わせて段階的に追加できます。
+      </p>
+    </div>
+  </section>
+
+  <!-- 段階図 -->
+  <section class="py-12 bg-white">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-center gap-1">
+        {[...levels].reverse().map((level, i) => {
+          const widths = ['w-full', 'w-10/12', 'w-8/12'];
+          return (
+            <a
+              href={`#${level.id}`}
+              class:list={[
+                'block px-6 py-3 rounded-lg text-center font-semibold text-sm transition-all hover:opacity-80',
+                widths[i],
+                level.color.badge,
+              ]}
+            >
+              {level.label} — {level.title}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- 各レベル詳細 -->
+  {levels.map((level) => (
+    <section id={level.id} class="py-16 border-t border-slate-100">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class:list={['inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold mb-4', level.color.badge]}>
+          <span class:list={['w-2 h-2 rounded-full', level.color.dot]}></span>
+          {level.label}
+        </div>
+        <h2 class="text-3xl font-bold text-slate-900 mb-2">{level.title}</h2>
+        <p class="text-slate-500 mb-3">{level.subtitle}</p>
+        <p class="text-slate-700 mb-10 max-w-2xl">{level.description}</p>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+          <!-- 機能一覧 -->
+          <div class="grid sm:grid-cols-3 gap-6">
+            {level.modules.map((mod) => (
+              <div class="bg-slate-50 rounded-xl p-5">
+                <h3 class="text-sm font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">{mod.group}</h3>
+                <ul class="space-y-2">
+                  {mod.items.map((item) => (
+                    <li class="flex items-start gap-2 text-sm text-slate-700">
+                      <span class:list={['mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0', level.color.dot]}></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <!-- スクリーンショット -->
+          <div class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-800">
+            <div class="flex items-center gap-1.5 px-4 py-2.5 bg-slate-700">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+            </div>
+            <div class="aspect-video">
+              <img
+                src={level.screenshot}
+                alt={`${level.title}画面`}
+                class="w-full h-full object-cover object-top"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+              />
+              <div class="hidden w-full h-full flex-col items-center justify-center text-slate-500 gap-2 bg-slate-100">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-xs">スクリーンショット準備中</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- 拡張・カスタマイズ -->
+  <section class="py-14 bg-slate-50 border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold text-slate-900 mb-3">カスタマイズ・拡張対応</h2>
+      <p class="text-slate-600 mb-6">
+        画面項目の追加・変更、帳票項目のカスタマイズなど、貴社の業務フローに合わせた調整が可能です。<br />
+        別途お見積もりとなります。
+      </p>
+      <a href="/contact/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors">
+        カスタマイズについて相談する
+      </a>
+    </div>
+  </section>
+
+  <CtaBanner />
+</BaseLayout>
