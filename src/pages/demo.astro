@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
+
+const employeeCounts = ['〜10名', '10〜50名', '50〜100名', '100名以上'];
+const currentSystems = [
+  'VB6 / Visual Basic 6',
+  'VB.NET / C#（デスクトップ）',
+  'Excel / Access',
+  '既製パッケージ（ERPなど）',
+  'その他',
+];
+---
+
+<BaseLayout
+  title="無料デモのお申し込み | PT-SaaS"
+  description="PT-SaaSの無料デモをお申し込みください。現在のシステム課題をヒアリングしながら、実際の画面をご覧いただけます。"
+>
+  <!-- ページヘッダー -->
+  <section class="bg-gradient-to-b from-primary-50 to-white py-16 border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 bg-primary-100 text-primary-700 text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+        無料・オンライン対応可
+      </div>
+      <h1 class="text-4xl font-bold text-slate-900 mb-4">無料デモのお申し込み</h1>
+      <p class="text-lg text-slate-600 max-w-xl mx-auto">
+        現在のシステム課題をヒアリングしながら、実際のPT-SaaS画面をご覧いただけます。<br />
+        お申し込み後、<strong>48時間以内</strong>にご連絡いたします。
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- デモの特徴 -->
+      <div class="grid sm:grid-cols-3 gap-4 mb-12">
+        {[
+          { icon: '🖥️', title: 'オンライン対応', desc: 'ZoomやTeamsでの画面共有デモも可能' },
+          { icon: '⏱️', title: '所要時間60分', desc: 'ご要望に合わせて重点的にご説明' },
+          { icon: '🔒', title: '完全無料・無圧力', desc: '契約の強要は一切ありません' },
+        ].map((item) => (
+          <div class="bg-slate-50 rounded-xl p-5 text-center">
+            <div class="text-2xl mb-2">{item.icon}</div>
+            <div class="text-sm font-bold text-slate-800 mb-1">{item.title}</div>
+            <div class="text-xs text-slate-500">{item.desc}</div>
+          </div>
+        ))}
+      </div>
+
+      <!-- フォーム（Netlify Forms） -->
+      <form
+        name="demo"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action={url('/contact/thanks/')}
+        class="space-y-6"
+      >
+        <input type="hidden" name="form-name" value="demo" />
+        <div class="hidden">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="name" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              お名前 <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="山田 太郎"
+            />
+          </div>
+          <div>
+            <label for="company" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              会社名 <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="株式会社〇〇製作所"
+            />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="email" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              メールアドレス <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="example@company.jp"
+            />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              電話番号 <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition"
+              placeholder="075-000-0000"
+            />
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="employee-count" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              従業員数
+            </label>
+            <select
+              id="employee-count"
+              name="employeeCount"
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition bg-white"
+            >
+              <option value="">選択してください</option>
+              {employeeCounts.map((c) => <option value={c}>{c}</option>)}
+            </select>
+          </div>
+          <div>
+            <label for="current-system" class="block text-sm font-semibold text-slate-700 mb-1.5">
+              現在のシステム
+            </label>
+            <select
+              id="current-system"
+              name="currentSystem"
+              class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition bg-white"
+            >
+              <option value="">選択してください</option>
+              {currentSystems.map((s) => <option value={s}>{s}</option>)}
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-semibold text-slate-700 mb-1.5">
+            現在の課題・ご要望（任意）
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-primary-400 focus:border-transparent transition resize-y"
+            placeholder="例：VB6のサポート終了が心配、Excel管理との二重入力を解消したい など"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full py-4 rounded-xl bg-primary-600 text-white font-bold hover:bg-primary-700 transition-colors shadow-md shadow-primary-200 text-sm"
+        >
+          無料デモを申し込む
+        </button>
+
+        <p class="text-xs text-slate-400 text-center">
+          送信いただいた情報は、デモのご案内のみに使用します。第三者への提供は一切行いません。
+        </p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
