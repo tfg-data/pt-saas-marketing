@@ -1,4 +1,6 @@
 ---
+import { url } from '../../lib/url';
+
 const screenshots = [
   {
     src: '/images/screenshots/dashboard-new.png',
@@ -54,7 +56,7 @@ const screenshots = [
             <span class="text-xs text-slate-500 font-medium">{ss.caption}</span>
           </div>
           <img
-            src={ss.src}
+            src={url(ss.src)}
             alt={ss.alt}
             class="w-full object-cover group-hover:scale-[1.01] transition-transform duration-300"
             loading="lazy"

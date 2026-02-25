@@ -1,4 +1,6 @@
 ---
+import { url } from '../../lib/url';
+
 const levels = [
   {
     id: 'level1',
@@ -67,7 +69,7 @@ const colorMap = {
         const widths = ['w-full', 'w-10/12', 'w-8/12'];
         return (
           <a
-            href={`/features/#${level.id}`}
+            href={url(`/features/#${level.id}`)}
             class:list={[
               'block px-6 py-3 rounded-lg text-center font-semibold text-sm transition-all hover:scale-105',
               widths[i],
@@ -115,7 +117,7 @@ const colorMap = {
                 </div>
 
                 <a
-                  href={`/features/#${level.id}`}
+                  href={url(`/features/#${level.id}`)}
                   class="inline-flex items-center gap-1.5 mt-6 text-sm font-semibold text-primary-600 hover:text-primary-700"
                 >
                   詳細を見る
@@ -128,7 +130,7 @@ const colorMap = {
               <!-- スクリーンショット -->
               <div class="relative bg-slate-800 flex items-center justify-center min-h-48 lg:min-h-0 overflow-hidden">
                 <img
-                  src={level.screenshot}
+                  src={url(level.screenshot)}
                   alt={`${level.title}画面`}
                   class="w-full h-full object-cover object-top opacity-90"
                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"

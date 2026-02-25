@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CtaBanner from '../../components/sections/CtaBanner.astro';
+import { url } from '../../lib/url';
 
 const levels = [
   {
@@ -205,7 +206,7 @@ const levels = [
             </div>
             <div class="aspect-video">
               <img
-                src={level.screenshot}
+                src={url(level.screenshot)}
                 alt={`${level.title}画面`}
                 class="w-full h-full object-cover object-top"
                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
@@ -231,7 +232,7 @@ const levels = [
         画面項目の追加・変更、帳票項目のカスタマイズなど、貴社の業務フローに合わせた調整が可能です。<br />
         別途お見積もりとなります。
       </p>
-      <a href="/contact/" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors">
+      <a href={url('/contact/')} class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors">
         カスタマイズについて相談する
       </a>
     </div>

@@ -1,4 +1,6 @@
 ---
+import { url } from '../../lib/url';
+
 const navItems = [
   { label: '機能', href: '/features/' },
   { label: '料金', href: '/pricing/' },
@@ -14,9 +16,9 @@ const currentPath = Astro.url.pathname;
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- ロゴ -->
-      <a href="/" class="flex-shrink-0">
+      <a href={url('/')} class="flex-shrink-0">
         <img
-          src="/images/tfglogo.png"
+          src={url('/images/tfglogo.png')}
           alt="TFG DATA"
           class="h-10 w-auto"
         />
@@ -26,7 +28,7 @@ const currentPath = Astro.url.pathname;
       <nav class="hidden md:flex items-center gap-1">
         {navItems.map((item) => (
           <a
-            href={item.href}
+            href={url(item.href)}
             class:list={[
               'px-4 py-2 rounded-md text-sm font-medium transition-colors',
               currentPath.startsWith(item.href)
@@ -42,13 +44,13 @@ const currentPath = Astro.url.pathname;
       <!-- CTA -->
       <div class="hidden md:flex items-center gap-3">
         <a
-          href="/contact/"
+          href={url('/contact/')}
           class="px-4 py-2 rounded-lg text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors border border-primary-200"
         >
           お問い合わせ
         </a>
         <a
-          href="/contact/?type=demo"
+          href={url('/contact/?type=demo')}
           class="inline-flex items-center px-4 py-2 rounded-lg bg-primary-600 text-white text-sm font-semibold hover:bg-primary-700 transition-colors"
         >
           無料デモを申し込む
@@ -80,20 +82,20 @@ const currentPath = Astro.url.pathname;
     <nav class="px-4 py-3 space-y-1">
       {navItems.map((item) => (
         <a
-          href={item.href}
+          href={url(item.href)}
           class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-slate-50"
         >
           {item.label}
         </a>
       ))}
       <a
-        href="/contact/"
+        href={url('/contact/')}
         class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-slate-50"
       >
         お問い合わせ
       </a>
       <a
-        href="/contact/?type=demo"
+        href={url('/contact/?type=demo')}
         class="block mt-2 px-4 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-semibold text-center hover:bg-primary-700 transition-colors"
       >
         無料デモを申し込む

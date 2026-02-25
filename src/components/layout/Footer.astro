@@ -1,4 +1,6 @@
 ---
+import { url } from '../../lib/url';
+
 const links = [
   {
     heading: 'サービス',
@@ -31,7 +33,7 @@ const links = [
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <!-- ブランド -->
       <div class="md:col-span-1">
-        <img src="/images/tfglogo.png" alt="TFG DATA" class="h-10 w-auto brightness-0 invert opacity-80 mb-3" />
+        <img src={url('/images/tfglogo.png')} alt="TFG DATA" class="h-10 w-auto brightness-0 invert opacity-80 mb-3" />
         <p class="text-sm leading-relaxed">
           中小製造業向けクラウド型<br />生産管理システム
         </p>
@@ -51,7 +53,7 @@ const links = [
             {group.items.map((item) => (
               <li>
                 <a
-                  href={item.href}
+                  href={item.href.startsWith('#') ? item.href : url(item.href)}
                   class="text-sm hover:text-white transition-colors"
                 >
                   {item.label}

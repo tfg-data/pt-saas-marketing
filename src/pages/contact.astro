@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
 
 const inquiryTypes = [
   '資料請求',
@@ -51,7 +52,7 @@ const inquiryTypes = [
         method="POST"
         data-netlify="true"
         netlify-honeypot="bot-field"
-        action="/contact/thanks/"
+        action={url('/contact/thanks/')}
         class="space-y-6"
       >
         <input type="hidden" name="form-name" value="contact" />

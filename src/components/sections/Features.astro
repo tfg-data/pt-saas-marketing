@@ -1,4 +1,6 @@
 ---
+import { url } from '../../lib/url';
+
 const domains = [
   { icon: '📦', name: '受注管理', features: ['受注伝票入力', '取引先別受注残', 'EDI自動取込'] },
   { icon: '🚚', name: '出荷管理', features: ['出荷入力', '納品書作成', 'ラベル印刷'] },
@@ -52,7 +54,7 @@ const domains = [
 
     <div class="mt-8 text-center">
       <a
-        href="/features/"
+        href={url('/features/')}
         class="inline-flex items-center text-primary-600 font-semibold hover:underline"
       >
         全機能の詳細を見る

@@ -1,4 +1,5 @@
 ---
+import { url } from '../../lib/url';
 ---
 
 <section class="bg-primary-900 text-white overflow-hidden">
@@ -28,7 +29,7 @@
         <!-- CTAボタン -->
         <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-8">
           <a
-            href="/demo/"
+            href={url('/demo/')}
             class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-accent-500 text-white font-bold text-base hover:bg-accent-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
           >
             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,7 +38,7 @@
             無料デモを申し込む
           </a>
           <a
-            href="/features/"
+            href={url('/features/')}
             class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border-2 border-primary-600 text-primary-200 font-semibold text-base hover:bg-primary-800 hover:border-primary-500 hover:text-white transition-all"
           >
             機能を見る
@@ -91,7 +92,7 @@
             </div>
           </div>
           <img
-            src="/images/screenshots/dashboard-new.png"
+            src={url('/images/screenshots/dashboard-new.png')}
             alt="PT-SaaSダッシュボード画面"
             class="w-full rounded-b-xl shadow-2xl"
             loading="eager"
