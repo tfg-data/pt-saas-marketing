@@ -1,48 +1,71 @@
 ---
-// 料金概要セクション（詳細は /pricing/ へ）
 ---
 
-<section class="py-20 bg-slate-50">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="bg-white py-16 sm:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">シンプルな料金体系</h2>
-      <p class="text-lg text-slate-600">利用するPC台数に応じた月額制。初期費用には全機能・設定・研修が含まれます。</p>
+      <span class="inline-block bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        料金
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">シンプルな料金体系</h2>
+      <p class="text-slate-600">規模・機能に応じてカスタマイズ。まずはお見積もりください。</p>
     </div>
 
-    <div class="max-w-3xl mx-auto grid sm:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <!-- 初期費用 -->
-      <div class="bg-white rounded-2xl border border-slate-200 p-7 shadow-sm">
-        <div class="text-xs font-bold text-slate-500 uppercase tracking-wide mb-3">初期費用</div>
-        <div class="text-4xl font-black text-slate-900 mb-1">300万円<span class="text-base font-normal text-slate-500">〜</span></div>
-        <p class="text-sm text-slate-600 mt-3 leading-relaxed">
-          レベル1〜3の全機能を含む。<br />
-          サーバー設定・PC設定・マニュアル・<br />操作説明が含まれます。
-        </p>
+      <div class="rounded-2xl border-2 border-slate-200 p-7">
+        <h3 class="font-bold text-slate-700 mb-1">初期費用（移行費用）</h3>
+        <div class="flex items-end gap-1 my-3">
+          <span class="text-3xl sm:text-4xl font-black text-slate-900">300万円〜</span>
+          <span class="text-slate-500 mb-1">（税別）</span>
+        </div>
+        <p class="text-sm text-slate-500">VB6ソースコードの規模・移行機能数によって変動します。詳細はお見積もりにてご提案します。</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            VB6ソースコード解析・移植
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            並行運用期間のサポート
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            ユーザートレーニング
+          </li>
+        </ul>
       </div>
 
-      <!-- 月額 -->
-      <div class="bg-primary-600 rounded-2xl p-7 text-white shadow-md shadow-primary-200">
-        <div class="text-xs font-bold text-primary-200 uppercase tracking-wide mb-3">月額利用料</div>
-        <div class="text-4xl font-black mb-1">
-          ¥1,000<span class="text-base font-normal text-primary-200">/台</span>
+      <!-- 月額費用 -->
+      <div class="rounded-2xl border-2 border-primary-600 p-7 relative overflow-hidden">
+        <div class="absolute top-3 right-3 bg-primary-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">推奨</div>
+        <h3 class="font-bold text-primary-700 mb-1">月額利用料</h3>
+        <div class="flex items-end gap-1 my-3">
+          <span class="text-3xl sm:text-4xl font-black text-slate-900">1,000円</span>
+          <span class="text-slate-500 mb-1">/ PC1台（税別）</span>
         </div>
-        <p class="text-sm text-primary-100 mt-3 leading-relaxed">
-          PC台数 × 月額。<br />
-          クラウド使用料・サポート料・<br />データバックアップが含まれます。
-        </p>
-        <div class="mt-4 text-xs text-primary-200 bg-primary-700/50 rounded-lg px-3 py-2">
-          例: PC3台 = 月額 33,000円〜
-        </div>
+        <p class="text-sm text-slate-500">利用PC台数に応じた従量課金。小規模から大規模まで柔軟に対応します。</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            クラウド使用料込み
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            サポート・バックアップ込み
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-primary-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+            継続的なアップデート
+          </li>
+        </ul>
       </div>
     </div>
 
-    <div class="text-center mt-8">
-      <a
-        href="/pricing/"
-        class="inline-flex items-center gap-2 text-primary-600 font-semibold hover:text-primary-700 text-sm"
-      >
-        詳細な料金・カスタマイズについて見る
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="mt-8 text-center">
+      <a href="/pricing/" class="inline-flex items-center text-primary-600 font-semibold hover:underline">
+        料金詳細・お見積もりはこちら
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
       </a>

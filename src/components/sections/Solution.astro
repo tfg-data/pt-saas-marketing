@@ -1,0 +1,60 @@
+---
+const pillars = [
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v10a2 2 0 01-2 2h-2" /></svg>`,
+    title: 'AI解析移植',
+    body: 'VB6ソースコードをAIが自動解析。TypeScript/Next.jsへ高精度に変換します。バリデーション・業務ロジックも忠実に移植。',
+    color: 'text-blue-600 bg-blue-50',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" /></svg>`,
+    title: 'データ継続性',
+    body: '既存のMySQLデータベースはそのまま継続利用。テーブル名・カラム名を変更せずにPrismaで安全にアクセスします。移行リスクゼロ。',
+    color: 'text-green-600 bg-green-50',
+  },
+  {
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>`,
+    title: '並行運用',
+    body: 'VB6と新システムを同時稼働。部門・機能単位で段階的に切り替えることで業務リスクをゼロに抑えます。',
+    color: 'text-purple-600 bg-purple-50',
+  },
+];
+---
+
+<section class="bg-white py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        ソリューション
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+        PT-SaaSが、製造業のDXを<br class="sm:hidden" />支援します
+      </h2>
+      <p class="text-slate-600 max-w-2xl mx-auto">
+        VB6ソースコードをAIが解析し、TypeScript/Next.jsへ忠実に移植。既存MySQLデータはそのまま活用し、業務を止めずに切り替えます。
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {pillars.map((p) => (
+        <div class="rounded-2xl border border-slate-100 p-6 hover:shadow-lg transition-shadow">
+          <div class={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-4 ${p.color}`} set:html={p.icon} />
+          <h3 class="text-lg font-bold text-slate-900 mb-3">{p.title}</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">{p.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- 受賞実績 -->
+    <div class="mt-12 bg-primary-900 rounded-2xl p-6 sm:p-8 text-center text-white">
+      <p class="text-primary-300 text-sm mb-2">公的認定・受賞歴</p>
+      <p class="text-xl sm:text-2xl font-bold mb-1">IT経営力大賞 2009</p>
+      <p class="text-primary-300">経済産業大臣賞・最優秀賞 受賞</p>
+      <div class="mt-4 flex flex-wrap justify-center gap-6 text-sm text-primary-200">
+        <div><span class="text-2xl font-bold text-white">15</span><span class="ml-1">社以上</span></div>
+        <div><span class="text-2xl font-bold text-white">2007</span><span class="ml-1">年から提供</span></div>
+        <div><span class="text-2xl font-bold text-white">160</span><span class="ml-1">機能対応</span></div>
+      </div>
+    </div>
+  </div>
+</section>

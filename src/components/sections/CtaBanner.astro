@@ -1,32 +1,40 @@
 ---
-// ページ末尾 CTA バナー
 ---
 
-<section class="py-20 bg-slate-900">
+<section class="bg-primary-800 py-14 sm:py-20">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
-      まずはお気軽にご相談ください
+    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+      まず、無料デモを体験してみてください
     </h2>
-    <p class="text-lg text-slate-400 mb-8 leading-relaxed">
-      資料請求・価格見積もり・デモのご依頼など、<br class="hidden sm:block" />
-      お問い合わせフォームよりお気軽にどうぞ。24時間以内にご返信します。
+    <p class="text-primary-200 mb-8 text-base sm:text-lg">
+      30分のオンラインデモで、実際のPT-SaaSの画面をご覧いただけます。<br class="hidden sm:block" />
+      しつこい営業は一切ありません。
     </p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a
+        href="/demo/"
+        class="inline-flex items-center justify-center px-7 py-4 rounded-xl bg-accent-500 text-white font-bold text-base hover:bg-accent-600 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
+      >
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.069A1 1 0 0121 8.847v6.306a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        無料デモを申し込む
+      </a>
       <a
         href="/contact/"
-        class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-primary-600 text-white font-bold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-900/50"
+        class="inline-flex items-center justify-center px-7 py-4 rounded-xl border-2 border-primary-600 text-primary-200 font-semibold text-base hover:bg-primary-700 hover:text-white transition-all"
       >
-        お問い合わせ・資料請求
-        <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
-      <a
-        href="mailto:tfg-support@tfgdata.jp"
-        class="inline-flex items-center justify-center px-8 py-4 rounded-xl border-2 border-slate-700 text-slate-300 font-semibold hover:border-slate-500 hover:text-white transition-colors"
-      >
-        メールで直接連絡
+        お問い合わせ
       </a>
     </div>
+
+    <p class="mt-6 text-primary-400 text-sm">
+      ご不明な点は
+      <a href="mailto:tfg-support@tfgdata.jp" class="text-primary-300 hover:text-white underline">
+        tfg-support@tfgdata.jp
+      </a>
+      までお気軽にどうぞ。平日9:00〜18:00対応。
+    </p>
   </div>
 </section>

@@ -5,6 +5,7 @@ const navItems = [
   { label: '会社案内', href: '/company/' },
   { label: 'FAQ', href: '/faq/' },
 ];
+// デモボタンを追加
 
 const currentPath = Astro.url.pathname;
 ---
@@ -42,9 +43,15 @@ const currentPath = Astro.url.pathname;
       <div class="hidden md:flex items-center gap-3">
         <a
           href="/contact/"
-          class="inline-flex items-center px-4 py-2 rounded-lg bg-primary-600 text-white text-sm font-semibold hover:bg-primary-700 transition-colors"
+          class="px-4 py-2 rounded-lg text-sm font-semibold text-primary-600 hover:bg-primary-50 transition-colors border border-primary-200"
         >
           お問い合わせ
+        </a>
+        <a
+          href="/contact/?type=demo"
+          class="inline-flex items-center px-4 py-2 rounded-lg bg-primary-600 text-white text-sm font-semibold hover:bg-primary-700 transition-colors"
+        >
+          無料デモを申し込む
           <svg class="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
@@ -81,9 +88,15 @@ const currentPath = Astro.url.pathname;
       ))}
       <a
         href="/contact/"
-        class="block mt-3 px-4 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-semibold text-center hover:bg-primary-700 transition-colors"
+        class="block px-3 py-2 rounded-md text-sm font-medium text-slate-700 hover:text-primary-600 hover:bg-slate-50"
       >
         お問い合わせ
+      </a>
+      <a
+        href="/contact/?type=demo"
+        class="block mt-2 px-4 py-2.5 rounded-lg bg-primary-600 text-white text-sm font-semibold text-center hover:bg-primary-700 transition-colors"
+      >
+        無料デモを申し込む
       </a>
     </nav>
   </div>

@@ -153,3 +153,12 @@ const inquiryTypes = [
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // ?type=demo でデモのご依頼を自動選択
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('type') === 'demo') {
+    const sel = document.getElementById('type') as HTMLSelectElement | null;
+    if (sel) sel.value = 'デモのご依頼';
+  }
+</script>

@@ -1,0 +1,76 @@
+---
+const steps = [
+  {
+    num: '01',
+    period: '1〜2週間',
+    title: '現状分析・ヒアリング',
+    body: 'VB6ソースコード、DBスキーマ、業務フローをAIが解析し、移行計画書を作成します。現場担当者へのヒアリングで業務要件を完全に把握します。',
+    color: 'bg-blue-600',
+  },
+  {
+    num: '02',
+    period: '4〜8週間',
+    title: '並行開発・単体テスト',
+    body: 'TypeScript/Next.jsへ変換・実装。既存MySQLをそのまま接続し、データ変換なしで開発します。VB6のバリデーションを忠実にZodスキーマで再現。',
+    color: 'bg-primary-600',
+  },
+  {
+    num: '03',
+    period: '2〜4週間',
+    title: '並行運用・ユーザー訓練',
+    body: 'VB6とWebシステムを同時稼働。部門ごとに段階的に切り替えることで業務リスクをゼロに抑えます。現場スタッフへのトレーニングも実施します。',
+    color: 'bg-purple-600',
+  },
+  {
+    num: '04',
+    period: '完了後も継続',
+    title: '本番切替・保守サポート',
+    body: '完全切替後も月次保守・機能追加をサポート。SaaSとして継続的にアップデートされ、将来の機能追加にも柔軟に対応します。',
+    color: 'bg-green-600',
+  },
+];
+---
+
+<section class="bg-slate-50 py-16 sm:py-20">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <span class="inline-block bg-green-100 text-green-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        移行プロセス
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+        最短3ヶ月で、業務を止めずに移行
+      </h2>
+      <p class="text-slate-600">
+        4ステップの確立されたプロセスで、リスクを最小化しながら安全に切り替えます。
+      </p>
+    </div>
+
+    <!-- タイムライン（モバイルは縦積み） -->
+    <div class="relative">
+      <!-- 縦ライン（デスクトップのみ非表示・モバイルで表示） -->
+      <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-200 sm:left-8 lg:hidden"></div>
+
+      <div class="space-y-6">
+        {steps.map((step, i) => (
+          <div class="flex gap-5 sm:gap-6">
+            <!-- ステップ番号 -->
+            <div class="shrink-0 relative z-10">
+              <div class={`w-12 h-12 sm:w-16 sm:h-16 rounded-2xl ${step.color} text-white flex flex-col items-center justify-center shadow-lg`}>
+                <span class="text-xs font-bold opacity-70">STEP</span>
+                <span class="text-lg font-black leading-none">{step.num}</span>
+              </div>
+            </div>
+            <!-- コンテンツ -->
+            <div class="flex-1 bg-white rounded-2xl border border-slate-200 p-5 hover:shadow-md transition-shadow">
+              <div class="flex flex-wrap items-center gap-2 mb-2">
+                <h3 class="font-bold text-slate-900">{step.title}</h3>
+                <span class="text-xs bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full">{step.period}</span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

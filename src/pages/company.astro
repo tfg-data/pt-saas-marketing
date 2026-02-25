@@ -17,6 +17,11 @@ const history = [
   { year: '2016年', event: 'TFGデータとして PT-SaaS の提供・販売を本格化' },
   { year: '現在', event: '15社以上の製造業への導入実績' },
 ];
+
+const ceoCareer = [
+  { period: '2007年〜現在', role: 'アクセンチュア株式会社', desc: '大手グローバルコンサルティングファームにてシステム開発・業務コンサルティングに従事。製造業・流通業を中心とした基幹システム刷新・DXプロジェクトをリード。大規模SI案件の経験を活かし、現在も最前線でコンサルティングを継続。' },
+  { period: '2007年〜', role: '株式会社TFGデータ 代表取締役（兼務）', desc: '製造業向けVB6ベース生産管理システムを自社開発・販売開始。2009年にIT経営力大賞2009 経済産業大臣賞・最優秀賞を受賞。現在はAI活用によるレガシーシステムのクラウドSaaS移行を軸に、中小製造業のDXを支援。' },
+];
 ---
 
 <BaseLayout
@@ -59,6 +64,36 @@ const history = [
             ))}
           </tbody>
         </table>
+      </div>
+
+      <!-- 代表者プロフィール -->
+      <h2 class="text-2xl font-bold text-slate-900 mb-6">代表者プロフィール</h2>
+      <div class="flex flex-col sm:flex-row items-start gap-8 mb-14 bg-slate-50 rounded-2xl p-8 border border-slate-100">
+        <!-- アバター -->
+        <div class="flex-shrink-0 flex flex-col items-center text-center sm:text-left">
+          <div class="w-24 h-24 rounded-full bg-primary-600 flex items-center justify-center text-white text-3xl font-bold mb-3">
+            松
+          </div>
+          <div class="font-bold text-slate-900 text-lg">松木 公冶</div>
+          <div class="text-sm text-slate-500">代表取締役</div>
+        </div>
+
+        <!-- キャリア -->
+        <div class="flex-1 space-y-5">
+          {ceoCareer.map((item) => (
+            <div class="border-l-2 border-primary-200 pl-4">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="text-xs font-bold text-primary-600 bg-primary-50 border border-primary-200 rounded px-2 py-0.5">{item.period}</span>
+                <span class="font-semibold text-slate-800 text-sm">{item.role}</span>
+              </div>
+              <p class="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+          <p class="text-sm text-slate-500 pt-2 border-t border-slate-200">
+            アクセンチュアでの大規模SI・DX経験と、現場密着型の製造業システム開発を両輪で続けることで、
+            理論と実践の両面から製造業のIT課題を解決しています。
+          </p>
+        </div>
       </div>
 
       <!-- 沿革 -->

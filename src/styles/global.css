@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  /* ロゴ配色から導出したカラーパレット */
-  --color-primary-50: #eff6ff;
+  /* === Brand Primary（PT-SaaSロゴの青を基調） === */
+  --color-primary-50:  #eff6ff;
   --color-primary-100: #dbeafe;
   --color-primary-200: #bfdbfe;
   --color-primary-500: #3b82f6;
@@ -11,13 +11,14 @@
   --color-primary-800: #1a3a8c;
   --color-primary-900: #0f2561;
 
+  /* === Accent（製造業の現場感をオレンジで） === */
   --color-accent-400: #fbbf24;
   --color-accent-500: #f59e0b;
   --color-accent-600: #d97706;
 
   --color-gray-tfg: #6b7280;
 
-  /* フォント */
+  /* === フォント === */
   --font-sans: 'Noto Sans JP', ui-sans-serif, system-ui, sans-serif;
 }
 
@@ -26,10 +27,29 @@
     font-family: var(--font-sans);
     color: #1e293b;
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.3;
   }
+
+  :focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
 }
+
+/* フェードインアップアニメーション */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.65s ease-out both;
+}
+.animation-delay-100 { animation-delay: 0.1s; }
+.animation-delay-200 { animation-delay: 0.2s; }
+.animation-delay-300 { animation-delay: 0.3s; }

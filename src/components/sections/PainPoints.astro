@@ -1,0 +1,66 @@
+---
+const pains = [
+  {
+    emoji: '😰',
+    title: 'VB6のサポートが切れて不安',
+    body: 'Microsoftの公式サポートは2008年終了。Windows 11で動作しないケースも急増中です。',
+  },
+  {
+    emoji: '🔧',
+    title: '保守できるエンジニアがいない',
+    body: 'VB6を書けるエンジニアは希少。業務知識を持つ担当者の退職でブラックボックス化が進みます。',
+  },
+  {
+    emoji: '🖥️',
+    title: 'Windows専用で在宅・モバイル不可',
+    body: 'クライアント/サーバー型はリモートワーク非対応。工場現場でのタブレット活用もできません。',
+  },
+  {
+    emoji: '📊',
+    title: 'Excelとの二重入力で非効率',
+    body: '基幹システムとExcelの並走で転記ミスやデータ不整合が日常的に発生しています。',
+  },
+  {
+    emoji: '📄',
+    title: 'Crystal Reportsのトラブル',
+    body: '帳票ツールのバージョン問題やライセンス更新コストに悩む担当者が急増しています。',
+  },
+  {
+    emoji: '📈',
+    title: 'スケールに限界がある',
+    body: '同時接続数の上限、処理速度の劣化。事業拡大とともにシステムが足かせになっています。',
+  },
+];
+---
+
+<section class="bg-slate-50 py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- ヘッダー -->
+    <div class="text-center mb-12">
+      <span class="inline-block bg-red-100 text-red-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        こんなお悩みはありませんか？
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">
+        製造業のVB6システム、<br class="sm:hidden" />限界を感じていませんか？
+      </h2>
+    </div>
+
+    <!-- ペインカードグリッド -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {pains.map((pain) => (
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-3">{pain.emoji}</div>
+          <h3 class="font-bold text-slate-900 mb-2">{pain.title}</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">{pain.body}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- 共感のフレーズ -->
+    <div class="mt-10 text-center">
+      <p class="text-slate-600">
+        どれか一つでも当てはまるなら、<strong class="text-primary-700">PT-SaaS</strong>がその悩みを解決します。
+      </p>
+    </div>
+  </div>
+</section>

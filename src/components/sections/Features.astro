@@ -1,55 +1,65 @@
 ---
-const features = [
-  {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>`,
-    color: 'bg-primary-100 text-primary-600',
-    title: '必要な機能を選べる',
-    description: '受注・出荷から始めて、購買・外注、生産計画へと段階的に拡張できます。会社の規模や管理レベルに合わせて3ステップで導入。過剰な機能を押し付けません。',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
-    color: 'bg-accent-100 text-accent-600',
-    title: 'サーバー不要・すぐ使える',
-    description: '外部データセンターで運用するため、社内にサーバーを設置する必要がありません。インターネット接続できるPCがあれば今日から使えます。バックアップ・運用管理も含む月額料金です。',
-  },
-  {
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
-    color: 'bg-green-100 text-green-600',
-    title: 'EDI連携で受注を自動化',
-    description: 'Web-EDIの受信データを自動取込し、受注登録の工数を大幅削減。手作業によるミスを防ぎ、得意先とのデータ連携をスムーズに実現します。',
-  },
+const domains = [
+  { icon: '📦', name: '受注管理', features: ['受注伝票入力', '取引先別受注残', 'EDI自動取込'] },
+  { icon: '🚚', name: '出荷管理', features: ['出荷入力', '納品書作成', 'ラベル印刷'] },
+  { icon: '💹', name: '売上管理', features: ['得意先別売上', '請求書作成', '入金管理'] },
+  { icon: '🔩', name: '外注管理', features: ['外注受入', '部品発注・入着', '外注注残'] },
+  { icon: '🛒', name: '購買管理', features: ['購買伝票入力', '検収確定'] },
+  { icon: '💳', name: '支払管理', features: ['支払管理', '仕入先別支払'] },
+  { icon: '🏭', name: '生産計画', features: ['生産計画入力', '材料有効在庫', 'MRP展開'] },
+  { icon: '📋', name: '指示書作成', features: ['指示書発行・印刷', '外注注文書印刷'] },
+  { icon: '⚙️', name: '工程管理', features: ['作業報告', '工程進捗', 'ロットトレース'] },
+  { icon: '📊', name: '在庫管理', features: ['出庫処理', '在庫メンテ', '棚卸管理'] },
+  { icon: '📡', name: 'EDI連携', features: ['伝送受注登録', '品番変換マスタ'] },
+  { icon: '📁', name: '基本マスタ', features: ['得意先・仕入先', '工場カレンダー'] },
+  { icon: '🔬', name: '基準情報', features: ['BOM(製品構成)', '製品・資材マスタ'] },
+  { icon: '📈', name: '経営管理', features: ['売上予測', '単価見積', '納期遵守率'] },
+  { icon: '🔧', name: '管理・バッチ', features: ['日次集計', '月次締め', '採番管理'] },
 ];
 ---
 
-<section class="py-20 bg-white">
+<section class="bg-primary-50 py-16 sm:py-20">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- セクションヘッダー -->
-    <div class="text-center mb-14">
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-        PT-SaaSの3つの特徴
+    <div class="text-center mb-12">
+      <span class="inline-block bg-primary-100 text-primary-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+        機能一覧
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">
+        製造業の全業務フローを<br class="sm:hidden" />ひとつのシステムで
       </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-        小規模製造業が抱える「コスト・手間・複雑さ」の課題を解決する、<br class="hidden sm:block" />
-        シンプルなクラウド生産管理システムです。
+      <p class="text-slate-600 max-w-xl mx-auto">
+        受注から出荷・売上・購買・生産計画・在庫まで、<strong>160機能・15業務ドメイン</strong>をカバー。
       </p>
     </div>
 
-    <!-- 特徴カード -->
-    <div class="grid md:grid-cols-3 gap-8">
-      {features.map((f, i) => (
-        <div class="relative p-7 rounded-2xl border border-slate-200 hover:border-primary-200 hover:shadow-md transition-all group">
-          <!-- 番号 -->
-          <div class="absolute top-5 right-6 text-6xl font-black text-slate-50 select-none group-hover:text-primary-50 transition-colors">
-            {String(i + 1).padStart(2, '0')}
-          </div>
-
-          <div class:list={['inline-flex items-center justify-center w-12 h-12 rounded-xl mb-5', f.color]}
-               set:html={f.icon}>
-          </div>
-          <h3 class="text-lg font-bold text-slate-900 mb-3">{f.title}</h3>
-          <p class="text-sm text-slate-600 leading-relaxed">{f.description}</p>
+    <!-- ドメインカードグリッド -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+      {domains.map((d) => (
+        <div class="bg-white rounded-xl p-4 border border-primary-100 hover:border-primary-300 hover:shadow-md transition-all group">
+          <div class="text-2xl mb-2">{d.icon}</div>
+          <h3 class="font-bold text-slate-900 text-sm mb-2">{d.name}</h3>
+          <ul class="space-y-0.5">
+            {d.features.map((f) => (
+              <li class="text-xs text-slate-500 flex items-center gap-1">
+                <span class="w-1 h-1 rounded-full bg-primary-400 shrink-0"></span>
+                {f}
+              </li>
+            ))}
+          </ul>
         </div>
       ))}
+    </div>
+
+    <div class="mt-8 text-center">
+      <a
+        href="/features/"
+        class="inline-flex items-center text-primary-600 font-semibold hover:underline"
+      >
+        全機能の詳細を見る
+        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>
