@@ -1,13 +1,13 @@
 ---
 const rows = [
-  { label: '移行期間',     vb6: 'なし（現状維持）', custom: '18〜36ヶ月',   pt: '3〜6ヶ月' },
-  { label: 'データ移行',  vb6: 'なし（現状維持）',  custom: '要設計・検証', pt: '既存DBそのまま ✓' },
-  { label: '製造業知識',  vb6: '現場にある',        custom: 'ゼロから習得', pt: '160機能実装済 ✓' },
-  { label: '保守性',       vb6: '悪化一方',         custom: '自社依存',     pt: '継続SaaSサポート ✓' },
-  { label: 'リモートワーク', vb6: '不可',           custom: '対応可能',     pt: '対応済み ✓' },
-  { label: 'モバイル対応', vb6: '不可',             custom: '要開発',       pt: 'レスポンシブ対応 ✓' },
-  { label: '帳票(Crystal Reports)', vb6: 'トラブル多', custom: '再実装必要', pt: 'React-PDF変換済 ✓' },
-  { label: 'EDI連携',     vb6: '専用ツール必要',    custom: '要開発',       pt: '標準対応 ✓' },
+  { label: '移行期間',     legacy: 'なし（現状維持）', custom: '18〜36ヶ月',   pt: '3〜6ヶ月' },
+  { label: 'データ移行',  legacy: 'なし（現状維持）',  custom: '要設計・検証', pt: '既存DBそのまま ✓' },
+  { label: '製造業知識',  legacy: '現場にある',        custom: 'ゼロから習得', pt: '160機能実装済 ✓' },
+  { label: '保守性',       legacy: '悪化一方',         custom: '自社依存',     pt: '継続SaaSサポート ✓' },
+  { label: 'リモートワーク', legacy: '不可',           custom: '対応可能',     pt: '対応済み ✓' },
+  { label: 'モバイル対応', legacy: '不可',             custom: '要開発',       pt: 'レスポンシブ対応 ✓' },
+  { label: '帳票(Crystal Reports)', legacy: 'トラブル多', custom: '再実装必要', pt: 'React-PDF変換済 ✓' },
+  { label: 'EDI連携',     legacy: '専用ツール必要',    custom: '要開発',       pt: '標準対応 ✓' },
 ];
 ---
 
@@ -28,7 +28,7 @@ const rows = [
         <thead>
           <tr class="bg-slate-50">
             <th class="text-left px-4 py-3.5 font-semibold text-slate-700 w-1/4">比較項目</th>
-            <th class="text-center px-4 py-3.5 font-semibold text-slate-500 w-1/4">VB6継続</th>
+            <th class="text-center px-4 py-3.5 font-semibold text-slate-500 w-1/4">レガシー継続</th>
             <th class="text-center px-4 py-3.5 font-semibold text-slate-500 w-1/4">完全自社開発</th>
             <th class="text-center px-4 py-3.5 font-bold text-primary-700 w-1/4 bg-primary-50">
               PT-SaaS
@@ -39,7 +39,7 @@ const rows = [
           {rows.map((row, i) => (
             <tr class={i % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
               <td class="px-4 py-3 font-medium text-slate-700">{row.label}</td>
-              <td class="px-4 py-3 text-center text-slate-500">{row.vb6}</td>
+              <td class="px-4 py-3 text-center text-slate-500">{row.legacy}</td>
               <td class="px-4 py-3 text-center text-slate-500">{row.custom}</td>
               <td class="px-4 py-3 text-center font-semibold text-primary-700 bg-primary-50/50">{row.pt}</td>
             </tr>
