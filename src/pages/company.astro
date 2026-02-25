@@ -19,7 +19,8 @@ const history = [
 ];
 
 const ceoCareer = [
-  { period: '2007年〜現在', role: 'アクセンチュア株式会社', desc: '大手グローバルコンサルティングファームにてシステム開発・業務コンサルティングに従事。製造業・流通業を中心とした基幹システム刷新・DXプロジェクトをリード。大規模SI案件の経験を活かし、現在も最前線でコンサルティングを継続。' },
+  { role: 'アクセンチュア株式会社', desc: '大手グローバルコンサルティングファームにてシステム開発・業務コンサルティングに従事。製造業・流通業を中心とした基幹システム刷新・DXプロジェクトをリード。大規模SI案件の経験を活かし、現在も最前線でコンサルティングを継続。' },
+  { role: '株式会社TFGデータ 代表取締役', desc: '製造業向けVB6ベース生産管理システムを自社開発・販売開始。2009年にIT経営力大賞2009 経済産業大臣賞・最優秀賞を受賞。現在はAI活用によるレガシーシステムのクラウドSaaS移行を軸に、中小製造業のDXを支援。' },
 ];
 ---
 
@@ -81,8 +82,7 @@ const ceoCareer = [
         <div class="flex-1 space-y-5">
           {ceoCareer.map((item) => (
             <div class="border-l-2 border-primary-200 pl-4">
-              <div class="flex items-center gap-2 mb-1">
-                <span class="text-xs font-bold text-primary-600 bg-primary-50 border border-primary-200 rounded px-2 py-0.5">{item.period}</span>
+              <div class="mb-1">
                 <span class="font-semibold text-slate-800 text-sm">{item.role}</span>
               </div>
               <p class="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
